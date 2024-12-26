@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookies Example</title>
+</head>
+<body>
+    <h1>Cookie Management</h1>
+    <input type="text" id="key" placeholder="Enter key">
+    <input type="text" id="value" placeholder="Enter value">
+    <button onclick="setCookie()">Set Cookie</button>
+    <button onclick="getCookie()">Get Cookie</button>
+    <button onclick="displayAllCookies()">Display All Cookies</button>
+    <button onclick="deleteCookie()">Delete Cookie</button>
+    <button onclick="deleteAllCookies()">Delete All Cookies</button>
+    
+    <h3>Cookies Table</h3>
+    <table id="cookies-table" border="1">
+        <thead>
+            <tr>
+                <th>Key</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    
+    <script src="36.js"></script>
+</body>
+</html>

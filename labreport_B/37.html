@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clone and Remove Table Rows</title>
+    <style>
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .add-button, .delete-button {
+            padding: 5px 10px;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .add-button {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .delete-button {
+            background-color: #dc3545;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Clone and Remove Table Rows</h1>
+    <table id="productTable">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>
+                    <select>
+                        <option>Select Product</option>
+                        <option>Product 1</option>
+                        <option>Product 2</option>
+                        <option>Product 3</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="text" placeholder="Price">
+                </td>
+                <td>
+                    <button class="delete-button" onclick="deleteRow(this)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div style="text-align: center;">
+        <button class="add-button" onclick="addRow()">Add New</button>
+    </div>
+    <script src="37.js"></script>
+</body>
+</html>
