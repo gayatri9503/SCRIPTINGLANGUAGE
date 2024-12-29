@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BCA Description</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $.ajax({
+                url: 'bca.txt',  // Path to your file
+                type: 'GET',
+                success: function(data) {
+                    $("#bcaContent").html(data);  // Display file content in the div
+                },
+                error: function() {
+                    alert("Error loading the file.");
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <div id="bcaContent">
+        <!-- Content from bca.txt will be displayed here -->
+    </div>
+
+</body>
+</html>
+
+

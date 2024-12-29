@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form with AJAX</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#loginForm").submit(function(e) {
+                e.preventDefault(); // Prevent page reload
+
+                var userId = $("#userid").val();
+                var password = $("#password").val();
+
+                $.ajax({
+                    url: "login_backend.php", // PHP file to check credentials
+                    type: "POST",
+                    data: { userId: userId, password: password },
+                    success: function(response) {
+                        if (response === "success") {
+                            $("#loginForm").hide(); // Hide form
+                            $("#welcomeMessage").show(); // Show welcome message
+                        } else {
+                            alert("Invalid credentials. Please try again.");
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <form id="loginForm">
+        UserID: <input type="text" id="userid" name="userid" required><br><br>
+        Password: <input type="password" id="password" name="password" required><br><br>
+        <input type="submit" value="Login">
+    </form>
+
+    <div id="welcomeMessage" style="display:none;">
+        <h1>Welcome! You are logged in.</h1>
+    </div>
+
+</body>
+</html>
+
+

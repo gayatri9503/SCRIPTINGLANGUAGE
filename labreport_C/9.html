@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#registrationForm").submit(function(e) {
+                e.preventDefault();
+                let valid = true;
+                // Validate Name
+                if ($("#name").val() == "" || /\d/.test($("#name").val())) {
+                    alert("Name should not be empty and should not contain numbers.");
+                    valid = false;
+                }
+                // Username Validation
+                if ($("#username").val().indexOf(" ") !== -1 || /[^a-zA-Z0-9_]/.test($("#username").val())) {
+                    alert("Username should not contain spaces or special characters except underscore.");
+                    valid = false;
+                }
+                // Email Validation
+                if (!/\S+@\S+\.\S+/.test($("#email").val())) {
+                    alert("Invalid email address.");
+                    valid = false;
+                }
+                if (valid) {
+                    alert("Form is valid.");
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <form id="registrationForm">
+        Name: <input type="text" id="name" name="name"><br><br>
+        Username: <input type="text" id="username" name="username"><br><br>
+        Email: <input type="text" id="email" name="email"><br><br>
+        <input type="submit" value="Register">
+    </form>
+
+</body>
+</html>

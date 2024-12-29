@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country and City</title>
+</head>
+<body>
+    <label>Country: 
+        <select id="country">
+            <option value="">Select Country</option>
+            <option value="USA">USA</option>
+            <option value="India">India</option>
+            <option value="Nepal">Nepal</option>
+        </select>
+    </label>
+    <br>
+    <label>City: 
+        <select id="city">
+            <option value="">Select City</option>
+        </select>
+    </label>
+
+    <script>
+        document.getElementById("country").addEventListener("change", function () {
+            const country = this.value;
+            const xhr = new XMLHttpRequest();
+            xhr.open("GET", `getCities.php?country=${country}`, true);
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    document.getElementById("city").innerHTML = xhr.responseText;
+                }
+            };
+            xhr.send();
+        });
+    </script>
+</body>
+</html>
