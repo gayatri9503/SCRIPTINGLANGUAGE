@@ -1,18 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Counter App</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Counter App</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      margin-top: 50px;
+    }
+    h2 {
+      margin-bottom: 20px;
+    }
+    .counter {
+      display: inline-flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .counter-buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    button {
+      font-size: 20px;
+      height: 50px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .value {
+      font-size: 24px;
+      font-weight: bold;
+      width: 60px;
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      border: 1px solid #ccc;
+      background-color: white;
+    }
+    /* Updated styles for reset button */
+    .reset-button {
+      font-size: 18px;
+      padding: 10px 30px; /* Added horizontal padding to fit the word 'Reset' */
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .reset-button:hover {
+      background-color: #45a049;
+    }
+  </style>
 </head>
 <body>
-    <div>
-        <h1>Counter App</h1>
-        <button id="increment">+</button>
-        <span id="counter">0</span>
-        <button id="decrement">-</button>
-        <button id="reset">Reset</button>
+  <h2>Counter App</h2>
+  <div class="counter-buttons">
+    <div class="counter">
+      <button onclick="decrement()">-</button>
+      <div id="counter" class="value">0</div>
+      <button onclick="increment()">+</button>
     </div>
-    <script src="32.js"></script>
+    <button class="reset-button" onclick="reset()">Reset</button> <!-- Reset button with updated style -->
+  </div>
+
+  <script>
+    let count = 0;
+    function increment() {
+      count++;
+      document.getElementById('counter').textContent = count;
+    }
+    function decrement() {
+      count--;
+      document.getElementById('counter').textContent = count;
+    }
+    function reset() {
+      count = 0;
+      document.getElementById('counter').textContent = count;
+    }
+  </script>
 </body>
 </html>

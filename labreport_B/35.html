@@ -1,12 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Clock</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Clock</title>
+  <style>
+    body {
+      background-color: #ffccff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .clock {
+      display: flex;
+      gap: 10px;
+    }
+    .box {
+      font-size: 40px;
+      font-family: 'Courier New', Courier, monospace;
+      color: purple;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      min-width: 70px;
+    }
+  </style>
 </head>
 <body>
-    <div id="clock"></div>
-    <script src="35.js"></script>
+  <div class="clock">
+    <div id="hour" class="box">00</div>
+    <div id="minute" class="box">00</div>
+    <div id="second" class="box">00</div>
+  </div>
+
+  <script>
+    function updateClock() {
+      const now = new Date();
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const seconds = String(now.getSeconds()).padStart(2, '0');
+
+      document.getElementById('hour').textContent = hours;
+      document.getElementById('minute').textContent = minutes;
+      document.getElementById('second').textContent = seconds;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
 </body>
 </html>
+
